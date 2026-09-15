@@ -94,310 +94,163 @@ p { font:400 clamp(16px,2.2vw,20px)/1.65 Arial,sans-serif; }
     }
 }
 
-/* Enhanced animated cat with multiple animations */
-.cat-container {
-  position: relative;
-  width: min(400px, 90vw);
-  height: 280px;
-  margin: 20px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cat {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  animation: catWalk 6s ease-in-out infinite;
-}
-
-/* Cat body */
-.cat-body {
-  position: absolute;
-  width: 120px;
-  height: 90px;
-  background: #FF6B6B;
-  border-radius: 50% 50% 45% 45%;
-  top: 60px;
-  left: 40px;
-  box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2);
-  animation: bodyBounce 2.4s ease-in-out infinite;
-}
-
-/* Cat head */
-.cat-head {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: #FF6B6B;
-  border-radius: 50%;
-  top: 20px;
-  left: 50px;
-  box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2);
-  animation: headNod 3s ease-in-out infinite;
-}
-
-/* Cat ears */
-.ear {
-  position: absolute;
-  width: 30px;
-  height: 40px;
-  background: #FF6B6B;
-  border-radius: 50% 50% 50% 0;
-  top: 5px;
-  box-shadow: inset -3px -2px 5px rgba(0,0,0,0.2);
-}
-
-.ear-left {
-  left: 15px;
-  animation: earTwitch 3s ease-in-out infinite;
-}
-
-.ear-right {
-  right: 15px;
-  animation: earTwitch 3s ease-in-out infinite 0.3s;
-}
-
-.ear::before {
-  content: '';
-  position: absolute;
-  width: 15px;
-  height: 20px;
-  background: #FFB3BA;
-  border-radius: 50%;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Cat eyes */
-.eyes {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-.eye {
-  position: absolute;
-  width: 18px;
-  height: 24px;
-  background: white;
-  border-radius: 50%;
-  top: 35px;
-}
-
-.eye-left { left: 30px; }
-.eye-right { right: 30px; }
-
-.pupil {
-  position: absolute;
-  width: 10px;
-  height: 14px;
-  background: #333;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: blink 4s ease-in-out infinite;
-}
-
-/* Cat mouth */
-.mouth {
-  position: absolute;
-  width: 20px;
-  height: 15px;
-  border: 2px solid #333;
-  border-top: none;
-  border-radius: 0 0 20px 20px;
-  top: 65px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.mouth::before,
-.mouth::after {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 8px;
-  background: #333;
-  top: -2px;
-}
-
-.mouth::before { left: -8px; transform: rotate(-20deg); }
-.mouth::after { right: -8px; transform: rotate(20deg); }
-
-/* Cat paws */
-.paw {
-  position: absolute;
-  width: 25px;
-  height: 35px;
-  background: #FF6B6B;
-  border-radius: 50% 50% 40% 40%;
-  bottom: -10px;
-  box-shadow: inset -2px -2px 5px rgba(0,0,0,0.2);
-}
-
-.paw-front-left {
-  left: 60px;
-  animation: pawStep 1.2s ease-in-out infinite;
-}
-
-.paw-front-right {
-  right: 60px;
-  animation: pawStep 1.2s ease-in-out infinite 0.6s;
-}
-
-/* Cat tail */
-.tail {
-  position: absolute;
-  width: 15px;
-  height: 90px;
-  background: #FF6B6B;
-  border-radius: 50%;
-  bottom: 50px;
-  right: 10px;
-  transform-origin: bottom center;
-  box-shadow: inset -2px 0 5px rgba(0,0,0,0.2);
-  animation: tailWag 1.5s ease-in-out infinite;
-}
-
-/* Floating hearts around cat */
-.floating-hearts {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
-
-.floating-heart {
-  position: absolute;
-  font-size: 24px;
-  animation: floatUp 3s ease-in infinite;
-}
-
-.heart1 { left: 10%; animation-delay: 0s; }
-.heart2 { left: 30%; animation-delay: 0.5s; }
-.heart3 { right: 20%; animation-delay: 1s; }
-.heart4 { right: 5%; animation-delay: 1.5s; }
-
-/* Animations */
-@keyframes catWalk {
-  0%, 100% { transform: translateX(-10px); }
-  50% { transform: translateX(10px); }
-}
-
-@keyframes bodyBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes headNod {
-  0%, 100% { transform: rotateX(0deg) rotateZ(0deg); }
-  25% { transform: rotateZ(-5deg); }
-  50% { transform: rotateZ(0deg); }
-  75% { transform: rotateZ(5deg); }
-}
-
-@keyframes earTwitch {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(-8deg); }
-}
-
-@keyframes blink {
-  0%, 45%, 48%, 100% { transform: translate(-50%, -50%) scaleY(1); }
-  46%, 47% { transform: translate(-50%, -50%) scaleY(0.1); }
-}
-
-@keyframes pawStep {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-@keyframes tailWag {
-  0%, 100% { transform: rotate(20deg); }
-  50% { transform: rotate(-25deg); }
-}
-
-@keyframes floatUp {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-80px) rotateZ(360deg);
-  }
-}
-
+/* Little animated cat: gentle, playful, and intentionally not childish */
+.cat-stage { position:relative; width:min(360px,82vw); height:190px; margin:2px auto 8px; }
+.cat-svg { width:100%; height:100%; overflow:visible; filter:drop-shadow(0 12px 18px rgba(121,45,82,.14)); }
+.cat-tail { transform-origin:174px 137px; animation:tailSway 1.8s ease-in-out infinite; }
+.cat-body { transform-origin:110px 145px; animation:catBounce 2.4s ease-in-out infinite; }
+.cat-paw { transform-origin:75px 143px; animation:wavePaw 2.8s ease-in-out infinite; }
+.cat-ear { transform-origin:center; animation:earTwitch 4.5s ease-in-out infinite; }
+.cat-eye { animation:blink 4s infinite; transform-origin:center; }
+.cat-heart { animation:floatHeart 2.2s ease-in-out infinite; transform-origin:center; }
+.cat-yarn { animation:rollYarn 3.6s ease-in-out infinite; transform-origin:center; }
+@keyframes tailSway { 0%,100%{transform:rotate(-7deg)} 50%{transform:rotate(14deg)} }
+@keyframes catBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+@keyframes wavePaw { 0%,65%,100%{transform:rotate(0)} 72%{transform:rotate(-18deg)} 80%{transform:rotate(8deg)} 88%{transform:rotate(-12deg)} }
+@keyframes earTwitch { 0%,88%,100%{transform:rotate(0)} 92%{transform:rotate(-5deg)} 96%{transform:rotate(4deg)} }
+@keyframes blink { 0%,45%,48%,100%{transform:scaleY(1)} 46%,47%{transform:scaleY(.12)} }
+@keyframes floatHeart { 0%,100%{transform:translateY(5px) scale(.92);opacity:.55} 50%{transform:translateY(-8px) scale(1.08);opacity:1} }
+@keyframes rollYarn { 0%,100%{transform:translateX(-5px) rotate(0)} 50%{transform:translateX(10px) rotate(160deg)} }
 </style>
 </head>
 <body>
 <div class="app">
+  <audio id="music" loop preload="auto" src="data:audio/wav;base64,UklGRoQmEABXQVZFZm10IBAAAAABAAEAIlYAAESsAAACABAAZGF0YWAmEAAAAAAAAAAAAAAAAQABAAEAAgACAAMAAwADAAMAAwADAAMAAgACAAEAAAAAAAAA///9//z/1f///zf/9/8c/+//+P/7//r///+n/+n/+///e/8YAOj/+//2/+D/8//z//T/+P/y/+//1f/8//T//f///8v//P///+L/AAAA//H/6f/x/+//7f/5//n/+//8//7/7v/k/w=="></audio>
+  <button class="music" id="musicBtn">🔊 Music ON</button>
+  <div class="nav">
+    <button class="btn" id="prevBtn">← Back</button>
+    <div class="dots" id="dotsContainer"></div>
+    <button class="btn" id="nextBtn">Next →</button>
+  </div>
+  
+  <!-- Slide 1: Title -->
   <div class="slide active">
     <div class="card">
-      <h1>🎉 A Cute Surprise! 🎉</h1>
-      <p class="script">Meet your animated friend...</p>
-      
-      <!-- Animated Cat -->
-      <div class="cat-container">
-        <div class="floating-hearts">
-          <div class="floating-heart heart1">💖</div>
-          <div class="floating-heart heart2">💕</div>
-          <div class="floating-heart heart3">💗</div>
-          <div class="floating-heart heart4">💓</div>
-        </div>
-        
-        <div class="cat">
-          <!-- Tail -->
-          <div class="tail"></div>
-          
-          <!-- Body -->
-          <div class="cat-body"></div>
-          
-          <!-- Head -->
-          <div class="cat-head">
-            <!-- Ears -->
-            <div class="ear ear-left"></div>
-            <div class="ear ear-right"></div>
-            
-            <!-- Eyes -->
-            <div class="eyes">
-              <div class="eye eye-left">
-                <div class="pupil"></div>
-              </div>
-              <div class="eye eye-right">
-                <div class="pupil"></div>
-              </div>
-            </div>
-            
-            <!-- Mouth -->
-            <div class="mouth"></div>
-          </div>
-          
-          <!-- Paws -->
-          <div class="paw paw-front-left"></div>
-          <div class="paw paw-front-right"></div>
-        </div>
+      <div class="kicker">A Special Message</div>
+      <h1>Happy Birthday Anushka! 🎉</h1>
+      <p class="script">To my best friend...</p>
+      <p>I created this little surprise just for you. Tap Next to explore! 💕</p>
+      <div class="gift">🎁</div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Wishes -->
+  <div class="slide">
+    <div class="card">
+      <h2>You are the BEST! ✨</h2>
+      <p>Since the day we became friends, every moment with you has been magical. Your smile, your laughter, your kindness—everything about you makes my life better.</p>
+      <p style="font-size:18px; margin-top:22px;">Here's to celebrating YOU today! 🌟</p>
+    </div>
+  </div>
+
+  <!-- Slide 3: Photo Grid -->
+  <div class="slide">
+    <div class="card">
+      <h2>Our Best Moments 📸</h2>
+      <div class="photo-grid">
+        <img class="photo" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=600&fit=crop" alt="Memory 1">
+        <img class="photo" src="https://images.unsplash.com/photo-1516534775068-bb57c9be4b48?w=400&h=600&fit=crop" alt="Memory 2">
+        <img class="photo" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&h=600&fit=crop" alt="Memory 3">
+        <img class="photo" src="https://images.unsplash.com/photo-1552058545-5e7b3e65d42c?w=400&h=600&fit=crop" alt="Memory 4">
+        <img class="photo" src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=400&h=600&fit=crop" alt="Memory 5">
       </div>
-      
-      <p style="margin-top: 30px; font-size: 18px;">A cute kitty just for you! 🐱</p>
-      
-      <button class="btn">Next</button>
+    </div>
+  </div>
+
+  <!-- Slide 4: Letter -->
+  <div class="slide">
+    <div class="card">
+      <h2>A Letter to You 💌</h2>
+      <div class="letter">Dear Anushka,
+
+Today is YOUR day, and I wanted you to know how much you mean to me. You're not just a friend—you're family. You're the reason I smile even on bad days.
+
+Thank you for being there, for listening, for caring, and for being absolutely amazing. I can't wait to create a thousand more memories with you!
+
+Here's to a year full of laughter, adventures, and endless joy.
+
+Happy Birthday! 🎂✨
+
+Forever yours,
+Your Best Friend 💕</div>
+    </div>
+  </div>
+
+  <!-- Slide 5: Final Message -->
+  <div class="slide">
+    <div class="card">
+      <h1>Never Stop Being You 💫</h1>
+      <p style="font-size:20px; margin:30px 0;">You are beautiful, smart, kind, and absolutely one-of-a-kind!</p>
+      <p>Enjoy every second of your special day. You deserve all the happiness in the world.</p>
+      <div class="gift">🎊</div>
+      <p style="margin-top:40px; font-style:italic; color:#b54a75;">Made with love and lots of cake! 🎂</p>
     </div>
   </div>
 </div>
 
 <script>
-// Simple navigation
-document.querySelector('.btn').addEventListener('click', function() {
-  alert('This is just a demo slide with the animated cat!');
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('dotsContainer');
+const musicBtn = document.getElementById('musicBtn');
+const music = document.getElementById('music');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+
+let currentSlide = 0;
+let isPlaying = true;
+
+// Create dots
+slides.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'dot' + (i === 0 ? ' active' : '');
+  dot.onclick = () => goToSlide(i);
+  dotsContainer.appendChild(dot);
 });
+
+function showSlide(n) {
+  if (n >= slides.length) currentSlide = 0;
+  if (n < 0) currentSlide = slides.length - 1;
+  slides.forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+  slides[currentSlide].classList.add('active');
+  document.querySelectorAll('.dot')[currentSlide].classList.add('active');
+}
+
+function goToSlide(n) {
+  currentSlide = n;
+  showSlide(currentSlide);
+}
+
+nextBtn.onclick = () => {
+  currentSlide++;
+  showSlide(currentSlide);
+};
+
+prevBtn.onclick = () => {
+  currentSlide--;
+  showSlide(currentSlide);
+};
+
+musicBtn.onclick = () => {
+  isPlaying ? music.pause() : music.play();
+  isPlaying = !isPlaying;
+  musicBtn.textContent = isPlaying ? '🔊 Music ON' : '🔇 Music OFF';
+};
+
+music.play();
+
+// Background hearts
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.textContent = '❤️';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(createHeart, 1000);
 </script>
 </body>
 </html>
